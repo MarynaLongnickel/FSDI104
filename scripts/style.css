@@ -30,8 +30,8 @@ main {
 }
 
 ul {
-  list-style-type: disc; /* ✅ default bullet style */
-  padding-left: 20px;    /* ✅ adds indentation for bullets */
+  list-style-type: disc;
+  padding-left: 20px;
 }
 
 form {
