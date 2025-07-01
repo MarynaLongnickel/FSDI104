@@ -50,3 +50,7 @@ input, select, button {
 h1 {
   font-family: 'Fredoka One', cursive;
 }
+
+select option[disabled][selected] {
+  color: #6c757d;
+}
