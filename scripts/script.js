@@ -78,14 +78,18 @@
 
 // -------------------------------------------------
 
-let user = {
-  username: "Marina123",
-  email: "marina@mail.com",
-  age: 37
-};
+// let user = {
+//   username: "Marina123",
+//   email: "marina@mail.com",
+//   age: 37
+// };
 
-// Step 2: Use a template literal to display a welcome message
-let message = `Welcome, ${user.username}! Your registered email is ${user.email}, and you are ${user.age} years old.`;
+// // Step 2: Use a template literal to display a welcome message
+// let message = `Welcome, ${user.username}! Your registered email is ${user.email}, and you are ${user.age} years old.`;
 
-// Output the message
-console.log(message);
+// // Output the message
+// console.log(message);
+
+// ------------------- form ----------------------
+
+
