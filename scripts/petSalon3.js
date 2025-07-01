@@ -1,4 +1,3 @@
-// Pet class definition
 class Pet {
   constructor(name, age, gender, breed, service, type) {
     this.name = name;
@@ -10,37 +9,75 @@ class Pet {
   }
 }
 
-// Initial pets array
 const pets = [
   new Pet("Buddy", 3, "Male", "Golden Retriever", "Grooming", "Dog"),
   new Pet("Luna", 5, "Female", "Poodle", "Vaccination", "Dog"),
   new Pet("Milo", 2, "Male", "Tabby", "Bath", "Cat")
 ];
 
-// Display total number of pets
 function displayPetCount() {
   document.getElementById("petCount").textContent = pets.length;
 }
 
-// Display pets in the table
-function displayRow() {
-  const tbody = document.getElementById("petTableBody");
-  tbody.innerHTML = "";
-  pets.forEach(pet => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${pet.name}</td>
-      <td>${pet.age}</td>
-      <td>${pet.gender}</td>
-      <td>${pet.breed}</td>
-      <td>${pet.service}</td>
-      <td>${pet.type}</td>
+function clearForm() {
+  document.getElementById("petForm").reset();
+  editingIndex = null;
+  document.querySelector("#petForm button[type='submit']").textContent = "Register";
+}
+
+function displayCards() {
+  const container = document.getElementById("petCards");
+  container.innerHTML = "";
+
+  pets.forEach((pet, index) => {
+    const card = document.createElement("div");
+    card.className = "col";
+
+    card.innerHTML = `
+      <div class="card h-100 shadow-sm">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${pet.name} (${pet.type})</h5>
+          <p class="card-text mb-1"><strong>Age:</strong> ${pet.age}</p>
+          <p class="card-text mb-1"><strong>Gender:</strong> ${pet.gender}</p>
+          <p class="card-text mb-1"><strong>Breed:</strong> ${pet.breed}</p>
+          <p class="card-text mb-3"><strong>Service:</strong> ${pet.service}</p>
+          <div class="mt-auto d-flex justify-content-between">
+            <button class="btn btn-primary btn-sm" onclick="editPet(${index})">Edit</button>
+            <button class="btn btn-danger btn-sm" onclick="deletePet(${index})">Delete</button>
+          </div>
+        </div>
+      </div>
     `;
-    tbody.appendChild(row);
+    container.appendChild(card);
   });
 }
 
-// Handle form submission
+let editingIndex = null;
+
+function editPet(index) {
+  const pet = pets[index];
+  document.getElementById("petName").value = pet.name;
+  document.getElementById("petAge").value = pet.age;
+  document.getElementById("petGender").value = pet.gender;
+  document.getElementById("petBreed").value = pet.breed;
+  document.getElementById("petService").value = pet.service;
+  document.getElementById("petType").value = pet.type;
+
+  editingIndex = index;
+  document.querySelector("#petForm button[type='submit']").textContent = "Update";
+}
+
+function deletePet(index) {
+  if (confirm(`Delete ${pets[index].name}?`)) {
+    pets.splice(index, 1);
+    displayPetCount();
+    displayCards();
+    if (editingIndex === index) {
+      clearForm();
+    }
+  }
+}
+
 document.getElementById("petForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -51,15 +88,16 @@ document.getElementById("petForm").addEventListener("submit", function(e) {
   const service = document.getElementById("petService").value;
   const type = document.getElementById("petType").value;
 
-  const newPet = new Pet(name, age, gender, breed, service, type);
-  pets.push(newPet);
+  if (editingIndex !== null) {
+    pets[editingIndex] = new Pet(name, age, gender, breed, service, type);
+  } else {
+    pets.push(new Pet(name, age, gender, breed, service, type));
+  }
 
   displayPetCount();
-  displayRow();
-
-  document.getElementById("petForm").reset();
+  displayCards();
+  clearForm();
 });
 
-// Initialize with default data
 displayPetCount();
-displayRow();
+displayCards();
