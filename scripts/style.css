@@ -6,15 +6,78 @@ body {
   color: #333;
 }
 
-header {
+header.header-container {
+  position: relative;
   background-color: lightpink;
-  padding: 20px;
+  border-radius: 0.5rem;
+  padding: 20px 30px;
+  height: 180px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header.header-container .header-top {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  right: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header.header-container img {
+  height: 110px;
+  margin: 0;
+  object-fit: contain;
+}
+
+header.header-container .nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+}
+
+header.header-container .nav-menu a {
+  color: hotpink;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+header.header-container .nav-menu a:hover {
+  color: #d63384;
+}
+
+header.header-container .header-title {
+  font-family: 'Fredoka One', cursive !important;
+  font-size: 2.25rem;
+  margin: 0;
   text-align: center;
 }
 
-header img {
-  height: 200px;
+@media (max-width: 768px) {
+  header.header-container .header-top {
+    position: static;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  header.header-container {
+    height: auto;
+    padding-bottom: 40px;
+  }
 }
+
 
 main {
   padding: 20px;
@@ -53,4 +116,137 @@ h1 {
 
 select option[disabled][selected] {
   color: #6c757d;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu a {
+  color: #ff69b4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.nav-menu a:hover {
+  color: #d63384;
+}
+
+.btn-outline-pink {
+  border: 1px solid hotpink;
+  color: hotpink;
+  background: transparent;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.btn-outline-pink:hover {
+  background-color: hotpink;
+  color: white;
+}
+
+.btn-pink {
+  background-color: hotpink;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.3rem 0.75rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-pink:hover {
+  background-color: #d63384;
+  color: white;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero h2 {
+  font-family: 'Fredoka One', cursive !important;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #d63384;
+}
+
+.hero p.lead {
+  font-size: 1.15rem;
+  color: #555;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: nowrap;
+}
+
+.feature-card {
+  flex: 1 1 0;
+  max-width: 16%;
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.feature-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+footer {
+  font-size: 0.9rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.logo-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .features {
+    flex-wrap: wrap;
+  }
+  .feature-card {
+    max-width: 45%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-card {
+    max-width: 100%;
+  }
 }

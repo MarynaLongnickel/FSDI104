@@ -35,8 +35,11 @@ class Pet {
 
 const pets = [
   new Pet("Buddy", 3, "Male", "Golden Retriever", "Grooming", "Dog"),
-  new Pet("Luna", 5, "Female", "Poodle", "Vaccination", "Dog"),
-  new Pet("Milo", 2, "Male", "Tabby", "Bath", "Cat")
+  new Pet("Luna", 5, "Female", "Poodle", "Nail Trim", "Dog"),
+  new Pet("Milo", 2, "Male", "Tabby", "Vaccination", "Cat"),
+  new Pet("Bella", 4, "Female", "Siamese", "Nail Trim", "Cat"),
+  new Pet("Charlie", 1, "Male", "Beagle", "Haircut", "Dog"),
+  new Pet("Daisy", 3, "Female", "Bulldog", "Bath", "Dog")
 ];
 
 function displayPetCount() {
