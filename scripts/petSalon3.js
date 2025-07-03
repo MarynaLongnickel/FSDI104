@@ -1,3 +1,27 @@
+const salon = {
+  name: "Fashion Pet",
+  phone: "123-456-7890",
+  address: {
+    street: "101 Main St",
+    state: "CA",
+    country: "USA"
+  },
+  hours: {
+    open: "9:00 AM",
+    close: "6:00 PM"
+  }
+};
+
+const footer = document.getElementById("footer-info");
+footer.innerHTML = `
+  <small>
+    &copy; 2025 <strong>${salon.name}</strong> &nbsp; | &nbsp;
+    Phone: <a href="tel:${salon.phone.replace(/-/g, '')}" class="text-light text-decoration-none">${salon.phone}</a> &nbsp; | &nbsp;
+    Address: ${salon.address.street}, ${salon.address.state}, ${salon.address.country} &nbsp; | &nbsp;
+    Hours: ${salon.hours.open} - ${salon.hours.close}
+  </small>
+`;
+
 class Pet {
   constructor(name, age, gender, breed, service, type) {
     this.name = name;
