@@ -140,24 +140,25 @@ function setupRegisterForm() {
 }
 
 // Dark Mode Toggle for Cards
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const modeToggle = document.getElementById("modeToggle");
   const body = document.body;
 
-  if (localStorage.getItem("theme") === "dark") {
+  // Set initial theme based on localStorage
+  const isDark = localStorage.getItem("theme") === "dark";
+  if (isDark) {
     body.classList.add("dark-mode");
-    if (modeToggle) modeToggle.textContent = "Light Mode";
+    modeToggle.textContent = "Light Mode";
   }
 
+  // Toggle dark mode
   if (modeToggle) {
     modeToggle.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-      const isDark = body.classList.contains("dark-mode");
-      modeToggle.textContent = isDark ? "Light Mode" : "Dark Mode";
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-
-      // Update cards when dark mode is toggled
-      updateCardsDarkMode(isDark);
+      const isNowDark = body.classList.contains("dark-mode");
+      modeToggle.textContent = isNowDark ? "Light Mode" : "Dark Mode";
+      localStorage.setItem("theme", isNowDark ? "dark" : "light");
+      updateCardsDarkMode(isNowDark);
     });
   }
 
