@@ -11,17 +11,20 @@
 </head>
 <body class="container d-flex flex-column min-vh-100">
 
-<header class="header-container d-flex flex-column" style="background-color: lightpink; padding: 20px 30px; border-radius: 0.5rem; height: 180px;">
+<header class="header-container d-flex flex-column" style="padding: 20px 30px; border-radius: 0.5rem; height: 180px;">
   <div class="header-top d-flex justify-content-between align-items-start">
     <div class="logo-container d-flex flex-column align-items-start">
       <span class="logo-text">The Fashion Pet</span>
       <img src="logo.png" alt="Fashion Pet Logo" height="110" />
     </div>
-    <nav class="nav-menu d-flex align-items-center gap-3">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="services.html">Services</a>
-      <a href="register.html">Register</a>
-    </nav>
+    <div class="d-flex align-items-center gap-3">
+      <nav class="nav-menu d-flex align-items-center gap-3">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="services.html">Services</a>
+        <a href="register.html">Register</a>
+      </nav>
+      <button id="modeToggle" class="btn btn-outline-pink btn-sm">Dark Mode</button>
+    </div>
   </div>
   <h1 class="header-title flex-grow-1 d-flex justify-content-center align-items-center m-0">Welcome to The Fabulous Fashion Pet</h1>
 </header>
@@ -40,7 +43,7 @@
   </div>
 </section>
 
-<section class="why-choose-us text-center py-5 bg-white rounded shadow-sm mb-5">
+<section class="why-choose-us text-center py-5 rounded shadow-sm mb-5">
   <h3 class="mb-4" style="font-family: 'Fredoka One', cursive;">Why Choose The Fashion Pet?</h3>
   <div class="row row-cols-1 row-cols-md-3 g-4 px-3 px-md-5">
     <div class="col">
@@ -85,7 +88,7 @@
   <div class="container" id="footer-info"></div>
 </footer>
 
-<script src="scripts/script.js"></script>
+<script src="scripts/main.js"></script>
 
 </body>
 </html>

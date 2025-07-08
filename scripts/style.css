@@ -1,19 +1,40 @@
+/* ---------- Base Theme Variables ---------- */
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --card-bg: #fff;
+  --header-bg: lightpink;
+  --btn-color: hotpink;
+  --btn-hover: #d63384;
+}
+
+/* ---------- Dark Mode Overrides ---------- */
+body.dark-mode, body.dark-mode :root {
+  --bg-color: #1c1c2c;
+  --text-color: #f0f0f0;
+  --card-bg: #2e2e4d;
+  --header-bg: #4d2d52;
+  --btn-color: #ff99cc;
+  --btn-hover: #cc6699;
+}
+
+/* ---------- Global Styles ---------- */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header.header-container {
   position: relative;
-  background-color: lightpink;
+  background-color: var(--header-bg);
   border-radius: 0.5rem;
   padding: 20px 30px;
   height: 180px;
   box-sizing: border-box;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +46,6 @@ header.header-container .header-top {
   top: 20px;
   left: 30px;
   right: 30px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,7 +65,7 @@ header.header-container .nav-menu {
 }
 
 header.header-container .nav-menu a {
-  color: hotpink;
+  color: var(--btn-color);
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
@@ -54,7 +74,7 @@ header.header-container .nav-menu a {
 }
 
 header.header-container .nav-menu a:hover {
-  color: #d63384;
+  color: var(--btn-hover);
 }
 
 header.header-container .header-title {
@@ -78,14 +98,13 @@ header.header-container .header-title {
   }
 }
 
-
 main {
   padding: 20px;
   justify-items: center;
 }
 
 #stats, #petList {
-  background: #fff;
+  background: var(--card-bg);
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -128,7 +147,7 @@ select option[disabled][selected] {
 }
 
 .nav-menu a {
-  color: #ff69b4;
+  color: var(--btn-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -136,12 +155,12 @@ select option[disabled][selected] {
 }
 
 .nav-menu a:hover {
-  color: #d63384;
+  color: var(--btn-hover);
 }
 
 .btn-outline-pink {
-  border: 1px solid hotpink;
-  color: hotpink;
+  border: 1px solid var(--btn-color);
+  color: var(--btn-color);
   background: transparent;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
@@ -151,12 +170,12 @@ select option[disabled][selected] {
 }
 
 .btn-outline-pink:hover {
-  background-color: hotpink;
+  background-color: var(--btn-color);
   color: white;
 }
 
 .btn-pink {
-  background-color: hotpink;
+  background-color: var(--btn-color);
   color: white;
   border: none;
   border-radius: 999px;
@@ -167,7 +186,7 @@ select option[disabled][selected] {
 }
 
 .btn-pink:hover {
-  background-color: #d63384;
+  background-color: var(--btn-hover);
   color: white;
 }
 
@@ -180,7 +199,7 @@ select option[disabled][selected] {
   font-family: 'Fredoka One', cursive !important;
   font-size: 2rem;
   margin-bottom: 0.5rem;
-  color: #d63384;
+  color: var(--btn-hover);
 }
 
 .hero p.lead {
@@ -202,7 +221,7 @@ select option[disabled][selected] {
 .feature-card {
   flex: 1 1 0;
   max-width: 16%;
-  background: white;
+  background: var(--card-bg);
   border-radius: 1rem;
   padding: 1.5rem 1.5rem 0 1.5rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -253,4 +272,41 @@ footer {
 
 .feature-card p {
   font-size: 0.875rem;  /* Smaller font size for the paragraph text */
+}
+
+/* background for card sections like #stats, #petList, etc. */
+#stats, #petList, .feature-card, .why-choose-us {
+  background: var(--card-bg);
+}
+
+/* ---------- Dark Mode for Cards ---------- */
+body.dark-mode .feature-card {
+  background-color: var(--card-bg) !important; /* Use the dark mode card background */
+  color: var(--text-color) !important; /* Adjusts text color */
+}
+
+body.dark-mode .feature-card h4, 
+body.dark-mode .feature-card p {
+  color: var(--text-color) !important; /* Ensure text color changes to white in dark mode */
+}
+
+body.dark-mode .feature-card:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important; /* Enhance hover shadow in dark mode */
+  transform: translateY(-5px) !important;
+}
+
+.dark-mode .card {
+  background-color: var(--card-bg); /* Update to dark mode background */
+  color: var(--text-color); /* Update text color */
+  border-color: var(--card-bg); /* Update border color */
+}
+
+.dark-mode .card .btn {
+  color: var(--text-color);
+  border-color: var(--btn-color); /* Ensure buttons are styled properly in dark mode */
+}
+
+/* Optional: Highlight the button colors on hover */
+.dark-mode .card .btn:hover {
+  background-color: var(--btn-hover);
 }
