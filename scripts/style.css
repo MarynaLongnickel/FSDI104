@@ -310,3 +310,7 @@ body.dark-mode .feature-card:hover {
 .dark-mode .card .btn:hover {
   background-color: var(--btn-hover);
 }
+
+#servicesRegistrationForm input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
